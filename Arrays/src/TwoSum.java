@@ -34,3 +34,25 @@ public class TwoSum {
         System.out.println(Arrays.toString(result));
     }
 }
+
+
+
+
+
+//1. HashMap banao
+//                  ↓
+//           2. Array traverse karo
+//   ↓
+//           3. required = target - nums[i]
+//                       ↓
+//        4. required map mein hai?
+//        ↓ YES
+//   return {map.get(required), i}
+//        ↓ NO
+//5. nums[i] ko map mein store karo
+//   ↓
+//           6. Next element par jao
+//   ↓
+//           7. Pura loop khatam ho gaya
+//   ↓
+//           8. return new int[]{}t[]{}
