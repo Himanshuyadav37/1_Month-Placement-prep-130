@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Solution {
+class DifferenceOfTwoArray {
 
     public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
 
