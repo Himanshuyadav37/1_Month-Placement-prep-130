@@ -30,3 +30,26 @@ public class RemoveDuplicateFromSortedArray {
         System.out.println("\nUnique elements: " + k);
     }
 }
+
+
+
+
+//----------------------------------------------------------------------------------------------------------
+class RemoveDuplicate{
+    public static int removeDuplicate(int[] arr){
+        int slow = 0;
+        for(int fast  = 0 ; fast < arr.length ; fast++){
+            if(arr[slow] < arr[fast]){
+            int temp = arr[slow+1];
+            arr[slow+1] = arr[fast];
+            arr[fast] = temp;
+            slow++;
+        }
+    }
+    return slow+1;
+    }
+    public static void main(String[] args){
+        int[] arr = {0,1,1,1,2,2,3};
+        System.out.println(removeDuplicate(arr));
+    }
+}
