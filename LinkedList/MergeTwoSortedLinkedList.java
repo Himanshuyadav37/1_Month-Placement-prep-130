@@ -35,24 +35,29 @@
 
     public static Node merge(Node h1, Node h2) {
 
-        // Tum yahan recursion ka logic complete karo
+        Node dummy = new Node(-1);
+        Node curr = dummy;
 
-        if (h1 == null) {
-            return h2;
+      while(h1.val != null && h2.val != null){
+       if(h1.val <= h2.val){
+        curr.next = h1;
+         h1 = h1.next;
+       }else{
+        curr.next = h2;
+        h2= h2.next;
+       }
+
+        curr = curr.next;
+
+        // Jo list bach gayi usko attach kar do
+        if (list1 != null) {
+            curr.next = list1;
+        } else {
+            curr.next = list2;
         }
 
-        if (h2 == null) {
-            return h1;
-        }
-
-
-        if(h1.data <= h2.data){
-            h1.next = merge(h1.next, h2);
-            return h1;
-        }else{
-            h2.next = merge(h1, h2.next);
-            return h2;
-        }
+        return dummy.next;
+    }
 
     }
 
