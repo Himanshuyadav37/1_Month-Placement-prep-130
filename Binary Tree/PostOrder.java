@@ -1,7 +1,4 @@
-
-//                           Left  -> Root  ->  Right
-
-public class InOrder {
+public class PostOrder {
 
     // ------------------------- NODE -------------------------
 
@@ -45,9 +42,9 @@ public class InOrder {
             return newNode;
         }
 
-        // ------------------------- INORDER -------------------------
+        // ------------------------- POSTORDER -------------------------
 
-        public static void inOrder(Node root) {
+        public static void postOrder(Node root) {
 
             // If node is null, return
             if (root == null) {
@@ -55,13 +52,13 @@ public class InOrder {
             }
 
             // Left subtree
-            inOrder(root.left);
+            postOrder(root.left);
+
+            // Right subtree
+            postOrder(root.right);
 
             // Root
             System.out.print(root.data + " ");
-
-            // Right subtree
-            inOrder(root.right);
         }
     }
 
@@ -77,8 +74,8 @@ public class InOrder {
         // Build tree
         Node root = BinaryTree.buildTree(nodes);
 
-        // Inorder traversal
-        System.out.print("Inorder: ");
-        BinaryTree.inOrder(root);
+        // Postorder traversal
+        System.out.print("Postorder: ");
+        BinaryTree.postOrder(root);
     }
 }
