@@ -12,24 +12,19 @@ public class IntersectionLinkedList {
 
     // ------------------------- INTERSECTION -------------------------
 
-    public static Node getIntersectionNode(Node headA, Node headB) {
+    public static Node intersect(Node l1, Node l2) {
 
-        Node p1 = headA;
-        Node p2 = headB;
+        if (l1 == null || l2 == null) {
+            return null;
+        }
+
+        Node p1 = l1;
+        Node p2 = l2;
 
         while (p1 != p2) {
 
-            if (p1 == null) {
-                p1 = headB;
-            } else {
-                p1 = p1.next;
-            }
-
-            if (p2 == null) {
-                p2 = headA;
-            } else {
-                p2 = p2.next;
-            }
+            p1 = p1 == null ? l2 : p1.next;
+            p2 = p2 == null ? l1 : p2.next;
         }
 
         return p1;
@@ -56,7 +51,7 @@ public class IntersectionLinkedList {
         headB.next.next = new Node(1);
         headB.next.next.next = common1;
 
-        Node intersection = getIntersectionNode(headA, headB);
+        Node intersection = intersect(headA, headB);
 
         if (intersection != null) {
             System.out.println("Intersection Node: " + intersection.data);
