@@ -43,7 +43,7 @@ public class HeightOfTree {
             int lh = height(root.left);
             int rh = height(root.right);
 
-            int maxHeight = Math.max(lh, rh) + 1;
+            return Math.max(lh, rh) + 1;
         }
     }
 
