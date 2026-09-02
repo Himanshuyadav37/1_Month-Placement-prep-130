@@ -8,16 +8,14 @@ public class Main {
 
         for (String s : strs) {
 
-            // 1. String ko character array me convert karo
-            char[] chars = s.toCharArray();
+            int[] freq = new int[26];
 
-            // 2. Characters sort karo
-            Arrays.sort(chars);
+            for (char c : s.toCharArray()) {
+                freq[c - 'a']++;
+            }
 
-            // 3. Sorted characters ko key banao
-            String key = new String(chars);
+            String key = Arrays.toString(freq);
 
-            // 4. Same key wali strings ko same group me daalo
             map.putIfAbsent(key, new ArrayList<>());
             map.get(key).add(s);
         }
